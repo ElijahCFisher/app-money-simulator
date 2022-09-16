@@ -1,0 +1,17 @@
+{
+    "income": [
+        [["Start Date", "01/03/2022"], ["End Date", "01/03/2023"], ["Pay Schedule", "biweekly"]],
+        [["Amount", "75000"], ["Per", "year"]],
+        [["Taxes", "20%"]]
+    ],
+    "house": [
+        [["Buy Date", "11/19/2021"], ["Sell Date", "03/03/2023"]],
+        {
+            "Mortgage": [
+                [["Start Date", "11/19/2021"], ["End Date", "03/03/2023"], ["Pay Schedule", "15 yr"]],
+                [["Start amount", "400000"], ["Interest rate", "2.75"]]
+            ]
+        },
+        [["Start amount", "475000"], ["Appreciation", "10%"]]
+    ]
+}

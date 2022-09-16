@@ -1,0 +1,7 @@
+<body>
+  <app-scenario [sources]="lScenario.sources" (newSource)="newSource($event)"></app-scenario>
+  <app-graph></app-graph>
+  <app-scenario [sources]="rScenario.sources" (newSource)="newSource($event)"></app-scenario>
+</body>
+
+<router-outlet></router-outlet>

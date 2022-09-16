@@ -1,0 +1,6 @@
+<div *ngIf="source !== undefined && source !== null">
+    <app-source></app-source>
+</div>
+<div *ngIf="source === undefined || source === null">
+    <app-source-settings-row *ngFor="let attribute of attrsAsArray(); index as i; first as isFirst"></app-source-settings-row>
+</div>

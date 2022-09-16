@@ -1,0 +1,5 @@
+<app-person-settings></app-person-settings>
+<app-source *ngFor="let source of sources; index as i; first as isFirst" [name]="source.name"></app-source>
+<div id="next">
+    <button id="add" (click)="addSource('NEW NAME')">+</button>
+</div>

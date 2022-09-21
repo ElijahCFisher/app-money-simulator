@@ -1,0 +1,11 @@
+#name {
+    font-size: 20px;
+    padding: 0px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+app-source-settings-row {
+    display: block;
+    margin-left: 10px;
+}

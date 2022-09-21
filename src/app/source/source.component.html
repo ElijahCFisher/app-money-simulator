@@ -1,2 +1,2 @@
-<p>{{name}}</p>
-<app-source-settings-row *ngFor="let source of rows; index as i; first as isFirst"></app-source-settings-row>
+<p id="name">{{name}}</p>
+<app-source-settings-row *ngFor="let row of rows; index as i; first as isFirst" [attributes]="row.attributes" [source]="row.source"></app-source-settings-row>

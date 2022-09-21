@@ -1,18 +1,18 @@
-{
-    "income": [
-        ["Start Date", "End Date", "Pay Schedule"],
-        ["Amount", "Per"],
-        ["Taxes"]
-    ],
-    "house": [
-        ["Buy Date", "Sell Date"],
-        {
-            "Mortgage": [
-                ["Start Date", "End Date", "Pay Schedule"],
-                ["Start amount"]
-            ]
-        },
-        ["Amount", "Per"],
-        ["Taxes"]
-    ]
-}
+// {
+//     "income": [
+//         ["Start Date", "End Date", "Pay Schedule"],
+//         ["Amount", "Per"],
+//         ["Taxes"]
+//     ],
+//     "house": [
+//         ["Buy Date", "Sell Date"],
+//         {
+//             "Mortgage": [
+//                 ["Start Date", "End Date", "Pay Schedule"],
+//                 ["Start amount"]
+//             ]
+//         },
+//         ["Amount", "Per"],
+//         ["Taxes"]
+//     ]
+// }

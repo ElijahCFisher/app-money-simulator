@@ -23,7 +23,7 @@ export class ScenarioComponent implements OnInit {
 
   addSource(name: string): void {
     var n = new SourceComponent()
-    n.name = "test"
+    n.name = name
 
     this.newSource.emit(n);
   }

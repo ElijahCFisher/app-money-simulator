@@ -9,7 +9,7 @@ import { SourceSettingsRowComponent } from '../source-settings-row/source-settin
 export class SourceComponent implements OnInit {
 
   @Input() name!: string;
-  rows: SourceSettingsRowComponent[];
+  @Input() rows: SourceSettingsRowComponent[];
 
   constructor() {
     this.rows = [];

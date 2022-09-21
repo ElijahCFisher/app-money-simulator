@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SourceComponent } from '../source/source.component';
 
 @Component({
@@ -8,18 +8,19 @@ import { SourceComponent } from '../source/source.component';
 })
 export class SourceSettingsRowComponent implements OnInit {
 
-  attributes: ({[key: string]: string});
-  source?: SourceComponent;
+  @Input() attributes?: ({[key: string]: string});
+  @Input() source?: SourceComponent;
 
   constructor() {
-    this.attributes = {};
   }
 
   ngOnInit(): void {
   }
 
   attrsAsArray(): [string, string][] {
-    return Object.entries(this.attributes)
+    if (this.attributes)
+      return Object.entries(this.attributes)
+    return [];
   }
 
 }

@@ -1,5 +1,5 @@
 <app-person-settings></app-person-settings>
-<app-source *ngFor="let source of sources; index as i; first as isFirst" [name]="source.name" [rows]="source.rows"></app-source>
+<app-source *ngFor="let source of sources; index as i; first as isFirst" [name]="source.name" [id]="source.id" [rows]="source.rows" (editNameEmit)="editName($event)" (editJsonEmit)="editJson($event)"></app-source>
 <div id="next">
-    <button id="add" (click)="addSource('NEW NAME')">+</button>
+    <button id="add" (click)="newSource('NEW NAME')">+</button>
 </div>

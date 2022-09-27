@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SourceComponent } from '../source/source.component';
 
 @Component({
@@ -10,6 +10,8 @@ export class SourceSettingsRowComponent implements OnInit {
 
   @Input() attributes?: ({[key: string]: string});
   @Input() source?: SourceComponent;
+  @Output() editNameEmit  = new EventEmitter<string>();
+  @Output() editJsonEmit  = new EventEmitter<{[name: string]: any}>();
 
   constructor() {
   }
@@ -21,6 +23,14 @@ export class SourceSettingsRowComponent implements OnInit {
     if (this.attributes)
       return Object.entries(this.attributes)
     return [];
+  }
+
+  editName(edit: string): void {
+    this.editNameEmit.emit(edit)
+  }
+
+  editJson(edit: {[name: string]: any}): void {
+    this.editJsonEmit.emit(edit)
   }
 
 }

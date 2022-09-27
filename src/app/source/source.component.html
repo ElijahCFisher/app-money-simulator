@@ -1,2 +1,6 @@
-<p id="name">{{name}}</p>
-<app-source-settings-row *ngFor="let row of rows; index as i; first as isFirst" [attributes]="row.attributes" [source]="row.source"></app-source-settings-row>
+<app-edit-popup [text]="ownJson()" (editNameEmit)="editName($event)" (editJsonEmit)="editJson($event)" (closeEmit)="displayDialog = false;" *ngIf="displayDialog"></app-edit-popup>
+<div id="nameRow">
+    <p id="name">{{name}}</p>
+    <div id="edit" (click)="displayDialog = true;"> edit </div>
+</div>
+<app-source-settings-row *ngFor="let row of rows; index as i; first as isFirst" [attributes]="row.attributes" [source]="row.source" (editNameEmit)="editName($event)" (editJsonEmit)="editJson($event)"></app-source-settings-row>

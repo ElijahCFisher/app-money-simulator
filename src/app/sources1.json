@@ -1,6 +1,7 @@
 [
     {
         "name": "Income",
+        "id": "0",
         "rows1": [
             [["Start Date", "01/03/2022"], ["End Date", "01/03/2023"], ["Pay Schedule", "biweekly"]],
             [["Amount", "75000"], ["Per", "year"]],
@@ -14,10 +15,12 @@
     },
     {
         "name": "House",
+        "id": "1",
         "rows1": [
             [["Buy Date", "11/18/2021"], ["Sell Date", "03/04/2023"]],
             {
                 "name": "Mortgage",
+                "id": "1.1",
                 "rows": [
                     [["Start Date", "11/18/2021"], ["End Date", "03/04/2023"], ["Pay Schedule", "15 yr"]],
                     [["Start amount", "400001"], ["Interest rate", "2.74"]]
@@ -29,6 +32,7 @@
             [["Buy Date", "11/19/2021"], ["Sell Date", "03/03/2023"]],
             {
                 "name": "Mortgage",
+                "id": "1.1",
                 "rows": [
                     [["Start Date", "11/19/2021"], ["End Date", "03/03/2023"], ["Pay Schedule", "15 yr"]],
                     [["Start amount", "400000"], ["Interest rate", "2.75"]]

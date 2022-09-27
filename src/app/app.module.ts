@@ -8,6 +8,7 @@ import { ScenarioComponent } from './scenario/scenario.component';
 import { PersonSettingsComponent } from './person-settings/person-settings.component';
 import { SourceComponent } from './source/source.component';
 import { SourceSettingsRowComponent } from './source-settings-row/source-settings-row.component';
+import { EditPopupComponent } from './edit-popup/edit-popup.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SourceSettingsRowComponent } from './source-settings-row/source-setting
     ScenarioComponent,
     PersonSettingsComponent,
     SourceComponent,
-    SourceSettingsRowComponent
+    SourceSettingsRowComponent,
+    EditPopupComponent
   ],
   imports: [
     BrowserModule,

@@ -11,9 +11,11 @@ export class ScenarioComponent implements OnInit {
 
   personSettings: PersonSettingsComponent;
   @Input() sources: SourceComponent[];
-  @Output() newSource = new EventEmitter<SourceComponent>();
+  @Output() newSourceEmit = new EventEmitter<SourceComponent>();
+  @Output() editNameEmit = new EventEmitter<string>();
+  @Output() editJsonEmit = new EventEmitter<{[name: string]: any}>();
 
-  constructor() { 
+  constructor() {
     this.personSettings = new PersonSettingsComponent();
     this.sources = [];
   }
@@ -21,11 +23,19 @@ export class ScenarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addSource(name: string): void {
+  newSource(name: string): void {
     var n = new SourceComponent()
     n.name = name
 
-    this.newSource.emit(n);
+    this.newSourceEmit.emit(n);
+  }
+
+  editName(edit: string): void {
+    this.editNameEmit.emit(edit)
+  }
+
+  editJson(edit: {[name: string]: any}): void {
+    this.editJsonEmit.emit(edit)
   }
 
 }

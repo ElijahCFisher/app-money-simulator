@@ -32,7 +32,7 @@ export class Funcs {
       "rows": []
     }
 
-    // looping through each row depending on which scenario it is
+    // looping through each row
     for(var row of source.rows) {
       var rowJson: string[][] = []
       var nextSource: {[name: string]: any} = {}

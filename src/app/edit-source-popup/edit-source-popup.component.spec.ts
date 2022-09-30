@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonSettingsComponent } from './person-settings.component';
+import { EditSourcePopupComponent } from './edit-source-popup.component';
 
-describe('PersonSettingsComponent', () => {
-  let component: PersonSettingsComponent;
-  let fixture: ComponentFixture<PersonSettingsComponent>;
+describe('EditPopupComponent', () => {
+  let component: EditSourcePopupComponent;
+  let fixture: ComponentFixture<EditSourcePopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PersonSettingsComponent ]
+      declarations: [ EditSourcePopupComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PersonSettingsComponent);
+    fixture = TestBed.createComponent(EditSourcePopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

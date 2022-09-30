@@ -1,0 +1,11 @@
+#attributeRow {
+  display:flex;
+  flex-direction: row;
+}
+
+.attribute {
+  display: inline;
+  flex: 1;
+  font-size: 13px;
+  margin: 2px;
+}

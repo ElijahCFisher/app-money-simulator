@@ -1,6 +1,6 @@
-<app-edit-popup [text]="ownJson()" (editNameEmit)="editName($event)" (editJsonEmit)="editJson($event)" (closeEmit)="displayDialog = false;" *ngIf="displayDialog"></app-edit-popup>
+<app-edit-source-popup id="editSourcePopup" *ngIf="displayDialog" [componentAsJson]="ownJson()" (closePopupOut)="displayDialog = false" (editSourceNameOut)="editSourceNameEvent($event)" (editSourceJsonOut)="editSourceJsonEvent($event)" (deleteSourceOut)="deleteSourceEvent()"></app-edit-source-popup>
 <div id="nameRow">
-    <p id="name">{{name}}</p>
-    <div id="edit" (click)="displayDialog = true;"> edit </div>
+  <p id="sourceName">{{name}}</p>
+  <div id="editSourcebutton" *ngIf="editable" (click)="displayDialog = true"> edit </div>
 </div>
-<app-source-settings-row *ngFor="let row of rows; index as i; first as isFirst" [attributes]="row.attributes" [source]="row.source" (editNameEmit)="editName($event)" (editJsonEmit)="editJson($event)"></app-source-settings-row>
+<app-source-row class="row" *ngFor="let row of rows; index as i; first as isFirst" [attributes]="row.attributes" [source]="row.source" (editSourceNameOut)="editSourceNameEvent($event)" (editSourceJsonOut)="editSourceJsonEvent($event)"></app-source-row>

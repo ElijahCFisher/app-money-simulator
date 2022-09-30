@@ -1,19 +1,18 @@
-import { SourceSettingsRowComponent } from "src/app/source-settings-row/source-settings-row.component";
-import { SourceComponent } from "src/app/source/source.component";
+import { SourceRowComponent } from "src/app/source-row/source-row.component"
+import { SourceComponent } from "src/app/source/source.component"
 
 export class Funcs {
 
   constructor(){}
 
-  static sourceFromJson(json: {[name: string]: any}, which: number = 0): SourceComponent {
-    console.log(json)
+  static sourceFromJson(json: {[name: string]: any}, scenario: number = -1): SourceComponent {
     var ret: SourceComponent = new SourceComponent()
     ret.name = json["name"]
     ret.id = json["id"]
 
     // looping through each row depending on which scenario it is
-    for(var row of (which ? (which == 1 ? json["rows1"] : json["rows2"]) : json["rows"])) {
-      var rowComp: SourceSettingsRowComponent = new SourceSettingsRowComponent()
+    for(var row of ((scenario != -1) ? json["scenarios"][scenario] : json["rows"])) {
+      var rowComp: SourceRowComponent = new SourceRowComponent()
       if (Array.isArray(row)) {
         rowComp.attributes = {}
         for (var attribute of row)
@@ -23,14 +22,14 @@ export class Funcs {
         rowComp.source = this.sourceFromJson(row)
       ret.rows.push(rowComp)
     }
-    return ret;
+    return ret
   }
 
-  static jsonFromSource(source: SourceComponent, which: number = 0): {[name: string]: any} {
+  static jsonFromSource(source: SourceComponent): {[name: string]: any} {
     var ret: {[name: string]: any} = {
       "name": source.name,
       "id": source.id,
-      [which ? (which == 1 ? "rows1" : "rows2") : "rows"]: []
+      "rows": []
     }
 
     // looping through each row depending on which scenario it is
@@ -38,11 +37,11 @@ export class Funcs {
       var rowJson: string[][] = []
       var nextSource: {[name: string]: any} = {}
       if (!row.source)
-        for (var attribute of row.attrsAsArray())
+        for (var attribute of row.attributesAsArray())
           rowJson.push([attribute[0], attribute[1]])
       else
         nextSource = this.jsonFromSource(row.source)
-      ret[which ? (which == 1 ? "rows1" : "rows2") : "rows"].push((rowJson.length == 0 ? nextSource : rowJson))
+      ret["rows"].push((rowJson.length == 0 ? nextSource : rowJson))
     }
     return ret
   }

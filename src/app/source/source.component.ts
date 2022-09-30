@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
-import { SourceSettingsRowComponent } from '../source-settings-row/source-settings-row.component';
-import { Funcs } from 'src/services/funcs';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core'
+import { SourceRowComponent } from '../source-row/source-row.component'
+import { Funcs } from 'src/services/funcs'
 
 @Component({
   selector: 'app-source',
@@ -9,31 +9,39 @@ import { Funcs } from 'src/services/funcs';
 })
 export class SourceComponent implements OnInit {
 
-  @Input() name!: string;
-  @Input() id!: string;
-  @Input() rows: SourceSettingsRowComponent[];
-  @Output() editNameEmit = new EventEmitter<string>();
-  @Output() editJsonEmit = new EventEmitter<{[name: string]: any}>();
-  displayDialog: boolean = false;
+  @Input() name!: string
+  @Input() id!: string
+  @Input() rows: SourceRowComponent[]
+  @Input() editable: boolean
+  @Output() editSourceNameOut = new EventEmitter<string[]>()
+  @Output() editSourceJsonOut = new EventEmitter<{[name: string]: any}>()
+  @Output() deleteSourceOut = new EventEmitter<string>()
+  displayDialog: boolean = false
 
   constructor() {
-    this.rows = [];
+    this.rows = []
+    this.editable = true
   }
 
   ngOnInit(): void {
   }
 
-  editName(edit: string): void {
-    this.editNameEmit.emit(edit)
-  }
-
-  editJson(edit: {[name: string]: any}): void {
-    this.editJsonEmit.emit(edit)
-  }
-
+  // Helpers
   ownJson(): {[name: string]: any} {
-    var ret = Funcs.jsonFromSource(this)
-    return ret
+    return Funcs.jsonFromSource(this)
+  }
+
+  // Events
+  editSourceNameEvent(edit: string[]): void {
+    this.editSourceNameOut.emit(edit)
+  }
+
+  editSourceJsonEvent(edit: {[name: string]: any}): void {
+    this.editSourceJsonOut.emit(edit)
+  }
+
+  deleteSourceEvent(): void {
+    this.deleteSourceOut.emit(this.id)
   }
 
 }

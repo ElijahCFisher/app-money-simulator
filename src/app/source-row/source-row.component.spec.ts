@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SourceSettingsRowComponent } from './source-settings-row.component';
+import { SourceRowComponent } from './source-row.component';
 
 describe('SourceSettingsRowComponent', () => {
-  let component: SourceSettingsRowComponent;
-  let fixture: ComponentFixture<SourceSettingsRowComponent>;
+  let component: SourceRowComponent;
+  let fixture: ComponentFixture<SourceRowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SourceSettingsRowComponent ]
+      declarations: [ SourceRowComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SourceSettingsRowComponent);
+    fixture = TestBed.createComponent(SourceRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

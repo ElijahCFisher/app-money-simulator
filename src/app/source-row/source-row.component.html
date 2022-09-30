@@ -1,0 +1,8 @@
+<div *ngIf="(source !== undefined && source !== null); else attributes">
+  <app-source [name]="source.name" [id]="source.id" [rows]="source.rows" [editable]="false"></app-source>
+</div>
+<ng-template #attributes>
+  <div id="attributeRow">
+    <p *ngFor="let attribute of attributesAsArray(); index as i; first as isFirst" class="attribute"> {{attribute[0]}}: {{attribute[1]}}</p>
+  </div>
+</ng-template>

@@ -1,6 +1,0 @@
-<div *ngIf="source !== undefined && source !== null">
-    <app-source [name]="source.name" [id]="source.id" [rows]="source.rows" (editNameEmit)="editName($any($event))" (editJsonEmit)="editJson($event)"></app-source>
-</div>
-<div *ngIf="source === undefined || source === null" id="attribute-row">
-    <p *ngFor="let attribute of attrsAsArray(); index as i; first as isFirst" class="attribute"> {{attribute[0]}}: {{attribute[1]}}</p>
-</div>

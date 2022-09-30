@@ -1,7 +1,7 @@
 <body>
-  <app-scenario [sources]="lScenario.sources" (newSourceEmit)="newSource($event)" (editJsonEmit)="editJson($event)" (editNameEmit)="editName($event)"></app-scenario>
-  <app-graph></app-graph>
-  <app-scenario [sources]="rScenario.sources" (newSourceEmit)="newSource($event)" (editJsonEmit)="editJson($event, 2)" (editNameEmit)="editName($event, 2)"></app-scenario>
+  <app-scenario class="scenario" [index]="0" [appSources]="appSources" (appSourcesOut)="appSources = $event" (editSourceNameOut)="editSourceName($event)" (deleteSourceOut)="deleteSource($event)" (newSourceOut)="newSource($event)"></app-scenario>
+  <app-graph class="graph"></app-graph>
+  <app-scenario class="scenario" [index]="1" [appSources]="appSources"                                       (editSourceNameOut)="editSourceName($event)" (deleteSourceOut)="deleteSource($event)" (newSourceOut)="newSource($event)"></app-scenario>
 </body>
 
 <router-outlet></router-outlet>

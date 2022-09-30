@@ -1,44 +1,73 @@
-app-person-settings {
-    display: block;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+#scenarioSettings {
+  display: block;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 
-    border: 1px solid black;
-    width: 100%;
-    height: 100px;
-    padding-left: 4px;
+  border: 1px solid black;
+  width: 100%;
+  height: 100px;
+  padding-left: 4px;
 }
 
-app-source {
-    display: block;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+.source {
+  display: block;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 
-    margin-top: -1px;
-    border: 1px solid black;
-    width: 100%;
-    padding-left: 4px;
+  margin-top: -1px;
+  border: 1px solid black;
+  width: 100%;
+  padding-left: 4px;
 }
 
-#next {
-    display: block;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+#nextSource {
+  display: block;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 
-    margin-top: -1px;
-    border: 1px solid black;
-    width: 100%;
-    height: 100px;
+  margin-top: -1px;
+  border: 1px solid black;
+  width: 100%;
+  height: 100px;
 }
 
-#add {
-    height: 20px;
-    width: 20px;
-    position: relative;
-    top: 50%;
-    left: 80%;
-    margin-top: -20px;
+#addNewButton {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  float: right;
+  top: 50%;
+  margin-right: 4px;
+  margin-top: -20px;
+}
+
+#placeholder {
+  display: block;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+
+  margin-top: -1px;
+  border: 1px solid black;
+  width: 100%;
+}
+
+#placeholderName {
+  display: inline-block;
+  font-size: 20px;
+  padding: 0px;
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-bottom: 4px;
+}
+
+#addExistingSourceButton {
+  float: right;
+  padding: 0px;
+  margin-top: 4px;
+  margin-right: 4px;
+  margin-bottom: 4px;
 }

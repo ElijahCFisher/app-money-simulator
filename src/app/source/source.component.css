@@ -1,6 +1,5 @@
-app-edit-popup {
+#editSourcePopup {
   display: block;
-  width: 1200px;
   height: 800px;
 }
 
@@ -8,7 +7,7 @@ app-edit-popup {
   display: block;
 }
 
-#name {
+#sourceName {
   display: inline-block;
   font-size: 20px;
   padding: 0px;
@@ -16,14 +15,14 @@ app-edit-popup {
   margin-bottom: 4px;
 }
 
-#edit {
+#editSourcebutton {
   float: right;
   margin-top: 4px;
   margin-bottom: 4px;
   margin-right: 4px;
 }
 
-app-source-settings-row {
+.row {
   display: block;
   margin-left: 10px;
 }

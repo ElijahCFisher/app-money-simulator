@@ -5,13 +5,13 @@ body {
     flex-direction: row;
 }
 
-app-scenario {
+.scenario {
     flex: 1;
 
     min-height: 100%;
 }
 
-app-graph  {
+.graph  {
     flex: 1;
     min-height: 100%;
     border: 1px solid black;

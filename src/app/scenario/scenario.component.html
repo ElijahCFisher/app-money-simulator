@@ -1,4 +1,4 @@
-<app-scenario-settings id="scenarioSettings"></app-scenario-settings>
+<app-source id="scenarioSettings" class="source" [name]="scenarioSettings.name" [id]="scenarioSettings.id" [rows]="scenarioSettings.rows" (editSourceJsonOut)="editSourceJsonEvent($event)"></app-source>
 <div *ngFor="let appSource of appSources; index as i; first as isFirst">
   <div *ngIf="isIdInSources(appSource[0]); else placeholder">
     <!-- This isn't actually a for loop. It's just the easiest way to make a variable :( -->

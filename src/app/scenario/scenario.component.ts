@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core'
 import { Funcs } from 'src/services/funcs'
-import { ScenarioSettingsComponent } from '../scenario-settings/scenario-settings.component'
 import { SourceComponent } from '../source/source.component'
 import sources1 from '../../assets/sources1.json'
+import sources1ScenarioSettings from '../../assets/sources1ScenarioSettings.json'
 // Example loaded in ^
 
 @Component({
@@ -18,17 +18,18 @@ export class ScenarioComponent implements OnInit {
   @Output() newSourceOut = new EventEmitter<string[]>()
   @Output() editSourceNameOut = new EventEmitter<string[]>()
   @Output() deleteSourceOut = new EventEmitter<string>()
-  // idk what I'll need for scenarioSettings, so I'm just gonna have the whole thing for now
-  scenarioSettings: ScenarioSettingsComponent
+  scenarioSettings: SourceComponent
   scenarioSources: {[name: string]: SourceComponent}
 
   constructor() {
     this.appSources = []
-    this.scenarioSettings = new ScenarioSettingsComponent()
+    this.scenarioSettings = new SourceComponent()
     this.scenarioSources = {}
   }
 
   ngOnInit(): void {
+    this.scenarioSettings = Funcs.sourceFromJson(sources1ScenarioSettings, this.index)
+
     for(var src of sources1) {
       var source: SourceComponent = Funcs.sourceFromJson(src, this.index)
       this.scenarioSources[source.id] = source
@@ -67,7 +68,8 @@ export class ScenarioComponent implements OnInit {
   }
 
   editSourceJsonEvent(edit: {[name: string]: any}): void {
-    this.scenarioSources[edit["id"]] = Funcs.sourceFromJson(edit)
+    if (edit["id"] == "Scenario Settings") this.scenarioSettings = Funcs.sourceFromJson(edit)
+    else this.scenarioSources[edit["id"]] = Funcs.sourceFromJson(edit)
   }
 
   deleteSourceEvent(id: string): void {

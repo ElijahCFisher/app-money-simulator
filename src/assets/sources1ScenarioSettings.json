@@ -1,0 +1,16 @@
+{
+  "name": "Scenario Settings",
+  "id": "Scenario Settings",
+  "scenarios": [
+    [
+      [["Bro", "idk"], ["Just", "some"], ["Scenario", "Settings"]],
+      [["I", "Guess"], ["Lorem", "Ipsum"]],
+      [["Something", "Soemthign"]]
+    ],
+    [
+      [["Bro", "idk2"], ["Just", "some2"], ["Scenario2", "Settings"]],
+      [["I", "Guess"], ["Lorem2", "Ipsum"]],
+      [["Something2", "Soemthign"]]
+    ]
+  ]
+}

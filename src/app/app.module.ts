@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { GraphComponent } from './graph/graph.component'
 import { ScenarioComponent } from './scenario/scenario.component'
-import { ScenarioSettingsComponent } from './scenario-settings/scenario-settings.component'
 import { SourceComponent } from './source/source.component'
 import { SourceRowComponent } from './source-row/source-row.component'
 import { EditSourcePopupComponent } from './edit-source-popup/edit-source-popup.component'
@@ -15,7 +14,6 @@ import { EditSourcePopupComponent } from './edit-source-popup/edit-source-popup.
     AppComponent,
     GraphComponent,
     ScenarioComponent,
-    ScenarioSettingsComponent,
     SourceComponent,
     SourceRowComponent,
     EditSourcePopupComponent

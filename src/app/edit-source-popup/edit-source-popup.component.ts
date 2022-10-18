@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core'
-import { SourceComponent } from '../source/source.component'
 
 @Component({
   selector: 'app-edit-source-popup',
@@ -44,7 +43,7 @@ export class EditSourcePopupComponent implements OnInit {
   }
 
   editSourceEvent(): void {
-    if (this.componentAsJson['name'] != document.getElementById('popupName')!.textContent!) this.editSourceName()
+    if (document.getElementById('popupName') != null && document.getElementById('popupName')!.textContent != null && this.componentAsJson['name'] != document.getElementById('popupName')!.textContent!) this.editSourceName()
     if (this.textAsString() != document.getElementById('sourceJson')!.textContent!) this.editSourceJson()
     this.closePopupEvent()
   }

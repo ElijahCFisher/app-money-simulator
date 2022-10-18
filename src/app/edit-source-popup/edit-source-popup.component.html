@@ -1,5 +1,5 @@
 <div id = "closeButton" (click)="closePopupEvent()"> minimize </div>
-<div id = "deleteButton" (click)="deleteSourceEvent()"> delete </div>
-<div id = "popupName" contenteditable="true">{{componentAsJson['name']}}</div>
+<div id = "deleteButton" *ngIf="componentAsJson['id'] != 'Scenario Settings'" (click)="deleteSourceEvent()"> delete </div>
+<div id = "popupName" *ngIf="componentAsJson['id'] != 'Scenario Settings'" contenteditable="true">{{componentAsJson['name']}}</div>
 <div id = "sourceJson" contenteditable="true">{{textAsString()}}</div>
 <div id = "submitButton" (click) ="editSourceEvent()"> Submit </div>

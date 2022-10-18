@@ -1,15 +1,3 @@
-#scenarioSettings {
-  display: block;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-
-  border: 1px solid black;
-  width: 100%;
-  height: 100px;
-  padding-left: 4px;
-}
-
 .source {
   display: block;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -21,6 +9,11 @@
   width: 100%;
   padding-left: 4px;
 }
+
+#scenarioSettings {
+  margin-top: 0px;
+}
+
 
 #nextSource {
   display: block;

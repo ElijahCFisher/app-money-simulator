@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SourceRowComponent } from './source-row.component';
 
-describe('SourceSettingsRowComponent', () => {
+describe('SourceRowComponent', () => {
   let component: SourceRowComponent;
   let fixture: ComponentFixture<SourceRowComponent>;
 

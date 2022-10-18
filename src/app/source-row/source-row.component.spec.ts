@@ -20,4 +20,15 @@ describe('SourceSettingsRowComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should give attributesAsArray when empty', () => {
+    expect(component.attributesAsArray()).toEqual([]);
+  });
+
+  it('should give attributesAsArray', () => {
+    component.attributes = {};
+    component.attributes["att0"] = "some";
+    component.attributes["att1"] = "attribute";
+    expect(component.attributesAsArray()).toEqual([["att0", "some"],["att1", "attribute"]]);
+  });
 });

@@ -1,5 +1,5 @@
-<div (click)="closePopupEvent()"> minimize </div>
-<div (click)="deleteSourceEvent()"> delete </div>
+<div id = "closeButton" (click)="closePopupEvent()"> minimize </div>
+<div id = "deleteButton" (click)="deleteSourceEvent()"> delete </div>
 <div id = "popupName" contenteditable="true">{{componentAsJson['name']}}</div>
 <div id = "sourceJson" contenteditable="true">{{textAsString()}}</div>
-<div (click)="editSourceEvent()"> Submit </div>
+<div id = "submitButton" (click) ="editSourceEvent()"> Submit </div>

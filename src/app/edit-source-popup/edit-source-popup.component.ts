@@ -44,8 +44,8 @@ export class EditSourcePopupComponent implements OnInit {
   }
 
   editSourceEvent(): void {
-    if (this.componentAsJson['name'] != document.getElementById('popupName')!.textContent!) this.editSouceName()
-    if (this.textAsString() != document.getElementById('sourceJson')!.textContent!) this.editSouceJson()
+    if (this.componentAsJson['name'] != document.getElementById('popupName')!.textContent!) this.editSourceName()
+    if (this.textAsString() != document.getElementById('sourceJson')!.textContent!) this.editSourceJson()
     this.closePopupEvent()
   }
 
@@ -55,12 +55,12 @@ export class EditSourcePopupComponent implements OnInit {
   }
 
   // Event helpers
-  editSouceName(): void {
+  editSourceName(): void {
     this.componentAsJson['name'] = document.getElementById('popupName')!.textContent!
     this.editSourceNameOut.emit([this.componentAsJson['id'], this.componentAsJson['name']])
   }
 
-  editSouceJson(): void {
+  editSourceJson(): void {
     var [name, id] = [this.componentAsJson['name'], this.componentAsJson['id']]
     this.componentAsJson = JSON.parse(document.getElementById('sourceJson')!.textContent!)
     this.componentAsJson['name'] = name, this.componentAsJson['id'] = id

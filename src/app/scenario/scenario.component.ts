@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
 import { Funcs } from 'src/services/funcs'
 import { ScenarioSettingsComponent } from '../scenario-settings/scenario-settings.component'
 import { SourceComponent } from '../source/source.component'
+import sources1 from '../../assets/sources1.json'
+// Example loaded in ^
 
 @Component({
   selector: 'app-scenario',
@@ -27,9 +29,7 @@ export class ScenarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Example loaded in v
-    var json = require('../sources1.json')
-    for(var src of json) {
+    for(var src of sources1) {
       var source: SourceComponent = Funcs.sourceFromJson(src, this.index)
       this.scenarioSources[source.id] = source
     }

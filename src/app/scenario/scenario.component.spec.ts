@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from  '@angular/common/http';
 import { Funcs } from 'src/services/funcs';
 
 import { ScenarioComponent } from './scenario.component';
@@ -9,7 +10,8 @@ describe('ScenarioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScenarioComponent ]
+      declarations: [ ScenarioComponent ],
+      imports: [HttpClientModule],
     })
     .compileComponents();
 
@@ -17,6 +19,7 @@ describe('ScenarioComponent', () => {
     component = fixture.componentInstance;
     component.index = 0;
     fixture.detectChanges();
+    while(Object.keys(component.scenarioSources).length == 0) await new Promise(r => setTimeout(r, 1));
     component.appSources = Object.keys(component.scenarioSources).map(key => [key, component.scenarioSources[key].name]);
   });
 

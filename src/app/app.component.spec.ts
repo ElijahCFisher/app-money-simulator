@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'app-money-simulator2'`, () => {
+  it(`should have as title 'app-money-simulator'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('app-money-simulator2');
+    expect(app.title).toEqual('app-money-simulator');
   });
 
   it('should add newSource', () => {

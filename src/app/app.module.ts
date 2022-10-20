@@ -8,6 +8,7 @@ import { ScenarioComponent } from './scenario/scenario.component'
 import { SourceComponent } from './source/source.component'
 import { SourceRowComponent } from './source-row/source-row.component'
 import { EditSourcePopupComponent } from './edit-source-popup/edit-source-popup.component'
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditSourcePopupComponent } from './edit-source-popup/edit-source-popup.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

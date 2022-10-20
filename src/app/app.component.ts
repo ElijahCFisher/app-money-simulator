@@ -6,7 +6,7 @@ import { Component } from '@angular/core'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app-money-simulator2'
+  title: string = 'app-money-simulator'
   appSources: string[][] = []
   sourcesInOnlyOne: Set<string> = new Set<string>;
 

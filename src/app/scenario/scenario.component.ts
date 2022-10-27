@@ -42,9 +42,9 @@ export class ScenarioComponent implements OnInit {
         var source: SourceComponent = Funcs.sourceFromJson(src, this.index)
         this.scenarioSources[source.id] = source
       }
-    }, complete: () =>{
+    }}).add(() => {
       this.appSourcesOut.emit(Object.entries(this.scenarioSources).map(entry => [entry[0], entry[1].name]))
-    }});
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {

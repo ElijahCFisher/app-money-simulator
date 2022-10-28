@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ScenarioComponent } from './scenario/scenario.component';
 import { SourceComponent } from './source/source.component';
 
@@ -9,12 +9,12 @@ import { SourceComponent } from './source/source.component';
 })
 export class HttpService {
 
-  private url: string = 'localhost:8080'
+  private url: string = 'http://localhost:8081'
 
   constructor(private http: HttpClient) { }
 
   getScenarios(): Observable<ScenarioComponent[]> {
-    return this.http.get<ScenarioComponent[]>(this.url + "/scenarios/")
+    return this.http.get<ScenarioComponent[]>(this.url + "/scenarios/").pipe(map((res: ScenarioComponent[]) => res.map((scenario: ScenarioComponent) => new ScenarioComponent(this).deserialize(scenario))))
   }
 
   addSource(scenarioId: string, body: SourceComponent): Observable<Object> {

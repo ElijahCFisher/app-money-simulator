@@ -7,7 +7,7 @@ import { ScenarioComponent } from './scenario/scenario.component';
 import { SourceComponent } from './source/source.component';
 
 describe('HttpService', () => {
-  let url: string = 'localhost:8080';
+  let url: string = 'http://localhost:8081';
   let service: HttpService;
   let httpMock: HttpTestingController;
 

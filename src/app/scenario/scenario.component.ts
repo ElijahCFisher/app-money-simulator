@@ -29,13 +29,25 @@ export class ScenarioComponent implements OnInit {
     this.scenarioSources = {}
   }
 
+  deserialize(input: any): this {
+    if (input == null) {
+      Object.assign(this, null)
+      return this
+    }
+    Object.assign(this, input)
+    this.scenarioSettings = new SourceComponent().deserialize(input.scenarioSettings)
+    for (var key in input.scenarioSources)
+      this.scenarioSources[key] = new SourceComponent().deserialize(input.scenarioSources[key])
+    return this
+  }
+
   ngOnInit(): void {
     var response = this.httpService.getScenarios();
     response.subscribe({next: resp => {
       this.scenarioSettings = resp[this.index].scenarioSettings;
       this.scenarioSources = resp[this.index].scenarioSources;
     }, error: error => {
-      console.log("Error getting scenarios, loading in example instead\n"+error)
+      console.log("Error getting scenarios, loading in example instead\n"+JSON.stringify(error))
       this.scenarioSettings = Funcs.sourceFromJson(sources1ScenarioSettings, this.index)
 
       for(var src of sources1) {

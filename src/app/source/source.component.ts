@@ -23,6 +23,16 @@ export class SourceComponent implements OnInit {
     this.editable = true
   }
 
+  deserialize(input: any): this {
+    if (input == null) {
+      Object.assign(this, null)
+      return this
+    }
+    Object.assign(this, input)
+    this.rows = input.rows.map((row:any) => new SourceRowComponent().deserialize(row))
+    return this
+  }
+
   ngOnInit(): void {
   }
 

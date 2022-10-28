@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+// import { Deserializable } from '../deserializable.model'
 import { SourceComponent } from '../source/source.component'
 
 @Component({
@@ -14,6 +15,16 @@ export class SourceRowComponent implements OnInit {
   @Output() editSourceJsonOut  = new EventEmitter<{[name: string]: any}>()
 
   constructor() {
+  }
+
+  deserialize(input: any): this {
+    if (input == null) {
+      Object.assign(this, null)
+      return this
+    }
+    Object.assign(this, input)
+    if (input.source != null) this.source = new SourceComponent().deserialize(input.source)
+    return this
   }
 
   ngOnInit(): void {

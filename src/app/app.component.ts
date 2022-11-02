@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { GoogleApiService } from './google-api.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,11 @@ export class AppComponent {
   appSources: string[][] = []
   sourcesInOnlyOne: Set<string> = new Set<string>;
 
-  constructor() {
+  constructor(private readonly google: GoogleApiService) {
+  }
+
+  getUser() {
+    return this.google.getUser().info.email
   }
 
   newSource(source: string[]) {

@@ -1,8 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { GoogleApiService } from './google-api.service';
 
 describe('AppComponent', () => {
+
+  var fixture: ComponentFixture<AppComponent>
+  var component: AppComponent
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -11,7 +16,13 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        {provide: GoogleApiService, useValue: {getUser: () => console.log("")}}
+      ]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   });
 
   it('should create the app', () => {
@@ -26,9 +37,17 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('app-money-simulator');
   });
 
+  it('should getUser', () => {
+    let email: string = "test@email.com"
+    let testUser: Object = {info: {email: email}}
+    spyOn<any>(component['google'], "getUser").and.returnValue(testUser)
+
+    var response = component.getUser();
+
+    expect(response).toBe(email);
+  });
+
   it('should add newSource', () => {
-    let fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
-    let component: AppComponent = fixture.componentInstance;
     var newSource = ["-1", "testSource"];
 
     expect(component.sourcesInOnlyOne).not.toContain(newSource[0]);
@@ -45,8 +64,6 @@ describe('AppComponent', () => {
   });
 
   it('should editSourceName', () => {
-    let fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
-    let component: AppComponent = fixture.componentInstance;
     component.appSources = [["0", "origName"],["1", "otherSource"]];
     var newName = ["0", "testSource"];
 
@@ -56,8 +73,6 @@ describe('AppComponent', () => {
   });
 
   it('should editSourceName', () => {
-    let fixture: ComponentFixture<AppComponent> = TestBed.createComponent(AppComponent);
-    let component: AppComponent = fixture.componentInstance;
     component.appSources = [["0", "origName"],["1", "otherSource"]];
     var deleteSource = "0";
 

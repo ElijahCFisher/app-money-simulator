@@ -11,12 +11,14 @@ import { SourceRowComponent } from './source-row/source-row.component'
 import { EditSourcePopupComponent } from './edit-source-popup/edit-source-popup.component'
 import { HttpClientModule } from  '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc'
+import { ScenariosComponent } from './scenarios/scenarios.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     GraphComponent,
     ScenarioComponent,
+    ScenariosComponent,
     SourceComponent,
     SourceRowComponent,
     EditSourcePopupComponent

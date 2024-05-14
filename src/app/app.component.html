@@ -1,8 +1,6 @@
 <body>
-  <div>{{getUser()}}</div>
-  <app-scenario class="scenario" [index]="0" [appSources]="appSources" (appSourcesOut)="appSources = $event" (editSourceNameOut)="editSourceName($event)" (deleteSourceOut)="deleteSource($event)" (newSourceOut)="newSource($event)"></app-scenario>
+  <app-scenarios class="scenarios"></app-scenarios>
   <app-graph class="graph"></app-graph>
-  <app-scenario class="scenario" [index]="1" [appSources]="appSources"                                       (editSourceNameOut)="editSourceName($event)" (deleteSourceOut)="deleteSource($event)" (newSourceOut)="newSource($event)"></app-scenario>
 </body>
 
 <router-outlet></router-outlet>

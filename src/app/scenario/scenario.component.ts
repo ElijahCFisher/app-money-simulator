@@ -8,75 +8,47 @@ import { SourceComponent } from '../source/source.component'
   templateUrl: './scenario.component.html',
   styleUrls: ['./scenario.component.css']
 })
-export class ScenarioComponent implements OnInit {
+export class ScenarioComponent {
 
-  @Input() index!: number
-  @Input() appSources: string[][]
-  @Output() appSourcesOut = new EventEmitter<string[][]>()
-  @Output() newSourceOut = new EventEmitter<string[]>()
-  @Output() editSourceNameOut = new EventEmitter<string[]>()
-  @Output() deleteSourceOut = new EventEmitter<string>()
-  scenarioSettings: SourceComponent
-  scenarioSources: {[name: string]: SourceComponent}
+  @Input() name: string = ""
+  @Input() sources: any[] = []
+  @Output() netWorthsEvent = new EventEmitter<[string, number][]>();
+  popupShowing: boolean = false
+  netWorths: [string, number][] = []
+  netWorth = 0;
+  ownSources: any[] = [];
 
   constructor() {
-    this.appSources = []
-    this.scenarioSettings = new SourceComponent()
-    this.scenarioSources = {}
-  }
-
-  deserialize(input: any): this {
-    if (input == null) {
-      Object.assign(this, null)
-      return this
-    }
-    Object.assign(this, input)
-    this.scenarioSettings = new SourceComponent().deserialize(input.scenarioSettings)
-    for (var key in input.scenarioSources)
-      this.scenarioSources[key] = new SourceComponent().deserialize(input.scenarioSources[key])
-    return this
   }
 
   ngOnInit(): void {
+    this.ownSources = this.sources.map((source) => structuredClone(source));
+    this.simulate();
+    console.log(this.netWorth, this.sources, this.netWorths)
+    Promise.resolve().then(() => {this.netWorthsEvent.emit(this.netWorths)});
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    for (var [i, source] of Object.entries(this.scenarioSources)) source.name = this.sourcesListNameFromId(i)
   }
 
-  // Helpers
-  isIdInSources(id: string): boolean {
-    return id in this.scenarioSources
-  }
+  simulate (): void {
+    this.ownSources.forEach(source => {
+      this.netWorth += (source["type"] == "income" ? 0 : (source["type"] == "asset" ? 1 : -1))*source["value"]
+    })
 
-  sourcesListNameFromId(id: string): string {
-    for(var source of this.appSources)
-      if (source[0] == id) return source[1]
-    return "NONE"
-  }
+    let days_simulated = 365
+    let today = new Date();
 
-  // Events
-  newSourceEvent(name: string, id: string = crypto.randomUUID()): void {
-    var n = new SourceComponent()
-    n.id = id, n.name = name
+    for(let i = 0; i < days_simulated; i++, today.setDate(today.getDate()+1)) {
+      this.ownSources.forEach(source => {
+        let sourceType = source["type"];
 
-    this.scenarioSources[id] = n
-
-    this.newSourceOut.emit([n.id,n.name])
-  }
-
-  editSourceNameEvent(edit: string[]): void {
-    this.editSourceNameOut.emit(edit)
-  }
-
-  editSourceJsonEvent(edit: {[name: string]: any}): void {
-    if (edit["id"] == "Scenario Settings") this.scenarioSettings = Funcs.sourceFromJson(edit)
-    else this.scenarioSources[edit["id"]] = Funcs.sourceFromJson(edit)
-  }
-
-  deleteSourceEvent(id: string): void {
-    delete this.scenarioSources[id]
-    this.deleteSourceOut.emit(id)
+        this.netWorth += sourceType == "income" ? source["value"]/365 : (sourceType == "asset" ? -source["value"] : source["value"])
+        source["value"] *= Math.E**(source["interest_rate"]/365)
+        this.netWorth += (sourceType == "income" ? 0 : (sourceType == "asset" ? 1 : -1)) * source["value"]
+      })
+      this.netWorths.push([String(today.toJSON().slice(0,10).replace(/-/g,'/')), this.netWorth])
+    }
   }
 
 }

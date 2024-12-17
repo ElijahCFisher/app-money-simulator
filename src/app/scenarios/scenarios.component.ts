@@ -7,12 +7,20 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
   styleUrls: ['./scenarios.component.css']
 })
 export class ScenariosComponent implements OnInit {
+  @Input() scenarios: any[] = []
+  @Output() netWorthsEvent = new EventEmitter<[string, number][][]>();
+  netWorthsArray: [string, number][][] = []
 
   constructor() {
   }
 
   ngOnInit(): void {
 
+  }
+
+  addNetWorths(newNetWorths: [string, number][]) {
+    this.netWorthsArray.push(newNetWorths);
+    this.netWorthsEvent.emit(this.netWorthsArray);
   }
 
 }

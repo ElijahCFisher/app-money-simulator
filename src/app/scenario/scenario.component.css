@@ -1,66 +1,40 @@
-.source {
-  display: block;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
+.name {
+  padding-left: 5px;
+}
 
-  margin-top: -1px;
+.expand {
+  margin-right: 5px;
+}
+
+.popup {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  z-index: 500;
   border: 1px solid black;
-  width: 100%;
-  padding-left: 4px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
-#scenarioSettings {
-  margin-top: 0px;
+.popup_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid black;
 }
 
-
-#nextSource {
-  display: block;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-
-  margin-top: -1px;
-  border: 1px solid black;
-  width: 100%;
-  height: 100px;
-}
-
-#addNewButton {
-  height: 20px;
-  width: 20px;
-  position: relative;
-  float: right;
-  top: 50%;
-  margin-right: 4px;
-  margin-top: -20px;
-}
-
-#placeholder {
-  display: block;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
-
-  margin-top: -1px;
-  border: 1px solid black;
-  width: 100%;
-}
-
-#placeholderName {
-  display: inline-block;
+.popup_name {
   font-size: 20px;
-  padding: 0px;
-  margin-top: 4px;
-  margin-left: 4px;
-  margin-bottom: 4px;
+  margin: 5px;
 }
 
-#addExistingSourceButton {
-  float: right;
-  padding: 0px;
-  margin-top: 4px;
-  margin-right: 4px;
-  margin-bottom: 4px;
+.popup_close {
+  margin: 5px;
+}
+
+app-source {
+  border-bottom: 1px solid black;
 }

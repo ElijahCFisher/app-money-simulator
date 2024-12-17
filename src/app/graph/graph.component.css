@@ -1,0 +1,10 @@
+.header {
+  box-sizing: border-box;
+  border-bottom: 3px solid black;
+  padding: 5px;
+  height: 50px;
+}
+
+.body {
+  height: auto
+}

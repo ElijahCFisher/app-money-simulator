@@ -1,16 +1,10 @@
-<app-source id="scenarioSettings" class="source" [name]="scenarioSettings.name" [id]="scenarioSettings.id" [rows]="scenarioSettings.rows" (editSourceJsonOut)="editSourceJsonEvent($event)"></app-source>
-<div *ngFor="let appSource of appSources; index as i; first as isFirst">
-  <div *ngIf="isIdInSources(appSource[0]); else placeholder">
-    <!-- This isn't actually a for loop. It's just the easiest way to make a variable :( -->
-    <app-source class="source" *ngFor="let source of [scenarioSources[appSource[0]]]" [name]="source.name" [id]="source.id" [rows]="source.rows" (editSourceNameOut)="editSourceNameEvent($event)" (editSourceJsonOut)="editSourceJsonEvent($event)" (deleteSourceOut)="deleteSourceEvent($event)"></app-source>
+<div class="name"> {{name}} </div>
+<button class="expand" (click)="popupShowing = true">+</button>
+<!-- <app-source *ngFor="let source of sources; index as i; first as isFirst"></app-source> -->
+<div *ngIf="popupShowing" class="popup">
+  <div class="popup_header">
+    <div class="popup_name"> {{name}} </div>
+    <button class="popup_close" (click)="popupShowing = false">X</button>
   </div>
-  <ng-template #placeholder>
-    <div id="placeholder">
-      <div id="placeholderName"> {{appSource[1]}} </div>
-      <div id="addExistingSourceButton" (click)="newSourceEvent(appSource[1], appSource[0])"> add </div>
-    </div>
-  </ng-template>
-</div>
-<div id="nextSource">
-  <button id="addNewButton" (click)="newSourceEvent('NEW NAME')">+</button>
+  <app-source *ngFor="let source of sources; index as i; first as isFirst" [name]="source.name" [thisAsObject]="source">lorem ipsum</app-source>
 </div>

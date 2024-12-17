@@ -5,14 +5,15 @@ body {
     flex-direction: row;
 }
 
-.scenario {
+.scenarios {
     flex: 1;
 
     min-height: 100%;
+    border: 1px solid black;
 }
 
 .graph  {
-    flex: 1;
+    flex: 4;
     min-height: 100%;
     border: 1px solid black;
 

@@ -21,11 +21,14 @@ describe('ScenarioComponent', () => {
     fixture.detectChanges();
     while(Object.keys(component.scenarioSources).length == 0) await new Promise(r => setTimeout(r, 1));
     component.appSources = Object.keys(component.scenarioSources).map(key => [key, component.scenarioSources[key].name]);
+    console.log(">>>")
+    console.log(component.scenarioSources[0].rows[0].attributes)
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    expect(component.scenarioSources["0"].rows[0].attributes!["Start Date"]).toContain("03");
+    // expect(component.scenarioSources["0"].rows[0].attributes!["Start Date"]).toContain("03");
+    expect(component.scenarioSources["0"].rows[0].attributes![0][1]).toContain("03");
   });
 
   it('should tell isIdInSources', () => {

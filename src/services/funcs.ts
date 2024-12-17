@@ -14,9 +14,13 @@ export class Funcs {
     for(var row of ((scenario != -1) ? json["scenarios"][scenario] : json["rows"])) {
       var rowComp: SourceRowComponent = new SourceRowComponent()
       if (Array.isArray(row)) {
-        rowComp.attributes = {}
+        // rowComp.attributes = {}
+        rowComp.attributes = []
+        // console.log("!!!!!!!!\n!!!!!!!!\n!!!!!!!!\n!!!!!!!!\n!!!!!!!!\n")
+        // console.log(row[0])
+        // for (var i = 0; i < row.length; i++)
         for (var attribute of row)
-          rowComp.attributes[attribute[0]] = attribute[1]
+          rowComp.attributes.push(attribute)
       }
       else
         rowComp.source = this.sourceFromJson(row)
@@ -36,9 +40,11 @@ export class Funcs {
     for(var row of source.rows) {
       var rowJson: string[][] = []
       var nextSource: {[name: string]: any} = {}
-      if (!row.source)
-        for (var attribute of row.attributesAsArray())
+      if (!row.source) {
+        console.log(row.attributes)
+        for (var attribute of row.attributes!)
           rowJson.push([attribute[0], attribute[1]])
+      }
       else
         nextSource = this.jsonFromSource(row.source)
       ret["rows"].push((rowJson.length == 0 ? nextSource : rowJson))

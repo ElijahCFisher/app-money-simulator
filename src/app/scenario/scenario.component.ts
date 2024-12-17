@@ -46,6 +46,7 @@ export class ScenarioComponent implements OnInit {
     response.subscribe({next: resp => {
       this.scenarioSettings = resp[this.index].scenarioSettings;
       this.scenarioSources = resp[this.index].scenarioSources;
+      console.log("SUCCEEDED GETTING SOURCES")
     }, error: error => {
       console.log("Error getting scenarios, loading in example instead\n"+JSON.stringify(error))
       this.scenarioSettings = Funcs.sourceFromJson(sources1ScenarioSettings, this.index)

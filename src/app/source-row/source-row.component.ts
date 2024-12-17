@@ -9,7 +9,8 @@ import { SourceComponent } from '../source/source.component'
 })
 export class SourceRowComponent implements OnInit {
 
-  @Input() attributes?: ({[key: string]: string})
+  // @Input() attributes?: ({[key: string]: string})
+  @Input() attributes?: string[][]
   @Input() source?: SourceComponent
   @Output() editSourceNameOut  = new EventEmitter<string[]>()
   @Output() editSourceJsonOut  = new EventEmitter<{[name: string]: any}>()
@@ -31,8 +32,8 @@ export class SourceRowComponent implements OnInit {
   }
 
   // Helpers
-  attributesAsArray(): [string, string][] {
-    return this.attributes ? Object.entries(this.attributes) : []
-  }
+  // attributesAsArray(): [string, string][] {
+  //   return this.attributes ? Object.entries(this.attributes) : []
+  // }
 
 }

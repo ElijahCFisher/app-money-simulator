@@ -1,2 +1,2 @@
 <div class="header">Scenarios</div>
-<app-scenario *ngFor="let scn of scenarios; index as i; first as isFirst" [name]="scn['name']" [sources]="scn['sources']" (netWorthsEvent)="addNetWorths($event)"></app-scenario>
+<app-scenario *ngFor="let scn of scenarios; index as i; first as isFirst" [name]="scn['name']" [sources]="scn['sources']" (netWorthsEvent)="addNetWorths($event[0], $event[1])"></app-scenario>

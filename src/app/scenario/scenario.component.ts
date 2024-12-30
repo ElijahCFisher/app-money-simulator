@@ -12,7 +12,7 @@ export class ScenarioComponent {
 
   @Input() name: string = ""
   @Input() sources: any[] = []
-  @Output() netWorthsEvent = new EventEmitter<[string, number][]>();
+  @Output() netWorthsEvent = new EventEmitter<[string, [string, number][]]>();
   popupShowing: boolean = false
   netWorths: [string, number][] = []
   netWorth = 0;
@@ -24,14 +24,20 @@ export class ScenarioComponent {
   ngOnInit(): void {
     this.ownSources = this.sources.map((source) => structuredClone(source));
     this.simulate();
-    console.log(this.netWorth, this.sources, this.netWorths)
-    Promise.resolve().then(() => {this.netWorthsEvent.emit(this.netWorths)});
+    Promise.resolve().then(() => {this.netWorthsEvent.emit([this.name, this.netWorths])});
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    if (changes['sources']) {
+      this.ownSources = this.sources.map((source) => structuredClone(source));
+      this.simulate();
+      this.netWorthsEvent.emit([this.name, this.netWorths]);
+    }
   }
 
   simulate (): void {
+    this.netWorth = 0; // Reset net worth before simulation
+    this.netWorths = []; // Reset net worths array before simulation
     this.ownSources.forEach(source => {
       this.netWorth += (source["type"] == "income" ? 0 : (source["type"] == "asset" ? 1 : -1))*source["value"]
     })

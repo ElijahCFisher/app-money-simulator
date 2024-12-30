@@ -38,9 +38,6 @@ export class GraphComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes['netWorthsArray'].currentValue)
-    console.log("ehh????")
-    console.log(this.netWorthsArray);
     if (this.netWorthsArray != null && this.netWorthsArray[0] != null) {
       for (var i = 0; i < this.netWorthsArray.length; i++) {
         if (this.data.datasets.length <= i) this.data.datasets.push({
@@ -50,7 +47,6 @@ export class GraphComponent implements OnInit {
         })
         this.data.datasets[i].data = this.netWorthsArray[i].map(([date, money]) => [new Date(date).getTime(),money])
       }
-      console.log(0)
       this.config.data = this.data;
 
       const element = document.getElementById('test')

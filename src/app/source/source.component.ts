@@ -51,8 +51,6 @@ export class SourceComponent implements OnInit {
         delete this.thisAsObject[key];
       }
     });
-
-    console.log(this.thisAsObject);
   }
 
   // Helpers

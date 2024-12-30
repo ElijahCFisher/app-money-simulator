@@ -8,8 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
 })
 export class ScenariosComponent implements OnInit {
   @Input() scenarios: any[] = []
-  @Output() netWorthsEvent = new EventEmitter<[string, number][][]>();
-  netWorthsArray: [string, number][][] = []
+  @Output() netWorthsEvent = new EventEmitter<{[key: string]: [string, number][]}>();
+  netWorthsArray: {[key: string]: [string, number][]} = {};
 
   constructor() {
   }
@@ -18,8 +18,8 @@ export class ScenariosComponent implements OnInit {
 
   }
 
-  addNetWorths(newNetWorths: [string, number][]) {
-    this.netWorthsArray.push(newNetWorths);
+  addNetWorths(key:string, newNetWorths: [string, number][]) {
+    this.netWorthsArray[key] = (newNetWorths);
     this.netWorthsEvent.emit(this.netWorthsArray);
   }
 

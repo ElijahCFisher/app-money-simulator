@@ -1,7 +1,7 @@
 <body>
   <p>{{ $any(scenarios[0])["sources"][0].estimated_yearly_growth }}</p>
-  <app-scenarios class="scenarios" [scenarios]="scenarios" (netWorthsEvent)="handleNetWorthsArray($event);"></app-scenarios>
-  <app-graph class="graph" [netWorthsArray]="this.netWorthsArray?this.netWorthsArray : []"></app-graph>
+  <app-scenarios class="scenarios" [scenarios]="scenarios" (netWorthsEvent)="netWorthsArray = Object.values($event) || []"></app-scenarios>
+  <app-graph class="graph" [netWorthsArray]="netWorthsArray"></app-graph>
 </body>
 
 <router-outlet></router-outlet>
